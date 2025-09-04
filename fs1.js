@@ -71,7 +71,7 @@ app.delete("/delete/:filename", async (req, res) => {
     }
 
     await client`DELETE FROM filedetails WHERE filename = ${req.params.filename}`;
-    res.json({ message: "success", description: "file deleted successfully" });
+    res.json({ message: "success", description: "file deleted successfully",filepath:filepath });
   } catch (err) {
     res.status(500).json({ message: "error", description: "Could not delete file" });
   }
