@@ -22,11 +22,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-app.use(cors({
-  origin: process.env.front_url,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+app.use(cors());
 
 // Upload file
 app.post("/upload", upload.single("myfile"), async (req, res) => {
