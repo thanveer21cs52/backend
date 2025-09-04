@@ -99,5 +99,6 @@ app.put("/rename/:filename/:newname/:description", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, () => console.log("🚀 Server running on ",(process.env.PORT));
-export default app;
+const PORT = process.env.PORT || 3001; // 3001 fallback for local dev
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
