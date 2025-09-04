@@ -49,7 +49,7 @@ app.get("/files", async (req, res) => {
 });
 
 // Download file
-app.get("/download/uploads/:filename", (req, res) => {
+app.get("/download/:filename", (req, res) => {
   const filepath = path.join(__dirname, "uploads",  req.params.filename);
   res.download(filepath, req.params.filename, (err) => {
     if (err) res.status(500).send("File not found");
