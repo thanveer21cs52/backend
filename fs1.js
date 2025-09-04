@@ -45,7 +45,7 @@ app.post("/upload", upload.single("myfile"), async (req, res) => {
 // Get all files
 app.get("/files", async (req, res) => {
   try {
-    const data = await client`SELECT * FROM filedetails`;
+    const data = await client`SELECT * FROM filedetails order by filename`;
     res.json(data);
   } catch (err) {
     res.status(500).json({ message: "error", description: "Could not fetch files" });
